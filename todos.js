@@ -11,11 +11,15 @@ while (input !== 'quit' && input !== 'q') {
         const newTodo = prompt('Okay, what is the new todo?');
         todos.push(newTodo);
         console.log(`${newTodo} added to the list`);
-    } 
-    // else {
-    //     const index = parseInt(prompt('Enter the index of the todo you want to remove:'));
-    //     console.log(`${index} has been removed`);
-    // }
+    } else if (input === 'delete') {
+        const index = parseInt(prompt('Enter the index of the todo you want to remove:'));
+        if (!Number.isNaN(index)) {
+            const deleted = todos.splice(index, 1);
+            console.log(`Okay, deleted ${deleted[0]}`);
+        } else {
+            console.log('Unknown index');
+        }
+    }
     input = prompt('What would you like to do?');
 }
 console.log('Okay, quit the app.');
